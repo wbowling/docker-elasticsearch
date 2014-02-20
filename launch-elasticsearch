@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+export YML=/etc/elasticsearch/elasticsearch.yml
+
+echo cluster.name: $ES_CLUSTER_NAME >> $YML
+echo network.publish_host: $ES_PUBLISH_HOST >> $YML
+echo http.max_content_length: 1000mb >> $YML
+echo cloud.aws.access_key: $AWS_ACCESS_KEY >> $YML
+echo cloud.aws.secret_key: $AWS_SECRET_KEY >> $YML
+echo cloud.aws.region: $AWS_REGION >> $YML
+echo discovery.type: ec2 >> $YML
+
+/usr/share/elasticsearch/bin/elasticsearch
