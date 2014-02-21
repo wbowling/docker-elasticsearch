@@ -3,12 +3,23 @@ set -e
 
 export YML=/etc/elasticsearch/elasticsearch.yml
 
+: ${ES_CLUSTER_NAME:=elasticsearch}
 echo cluster.name: $ES_CLUSTER_NAME >> $YML
-echo network.publish_host: $ES_PUBLISH_HOST >> $YML
+
+if [ -n "$ES_PUBLISH_HOST" ]; then
+  echo network.publish_host: $ES_PUBLISH_HOST >> $YML
+fi
+
 echo http.max_content_length: 1000mb >> $YML
-echo cloud.aws.access_key: $AWS_ACCESS_KEY >> $YML
-echo cloud.aws.secret_key: $AWS_SECRET_KEY >> $YML
-echo cloud.aws.region: $AWS_REGION >> $YML
-echo discovery.type: ec2 >> $YML
+
+if [ -n "$AWS_ACCESS_KEY" && -n "$AWS_SECRET_KEY" ]; then
+  echo cloud.aws.access_key: $AWS_ACCESS_KEY >> $YML
+  echo cloud.aws.secret_key: $AWS_SECRET_KEY >> $YML
+
+  if [ -n "$AWS_REGION" ]; then
+    echo cloud.aws.region: $AWS_REGION >> $YML
+  fi
+  echo discovery.type: ec2 >> $YML
+fi
 
 /usr/share/elasticsearch/bin/elasticsearch
