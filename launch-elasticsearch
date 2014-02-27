@@ -12,7 +12,7 @@ fi
 
 echo http.max_content_length: 1000mb >> $YML
 
-if [ -n "$AWS_ACCESS_KEY" && -n "$AWS_SECRET_KEY" ]; then
+if [ -n "$AWS_ACCESS_KEY" ] && [ -n "$AWS_SECRET_KEY" ]; then
   echo cloud.aws.access_key: $AWS_ACCESS_KEY >> $YML
   echo cloud.aws.secret_key: $AWS_SECRET_KEY >> $YML
 
