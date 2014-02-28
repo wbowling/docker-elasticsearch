@@ -3,6 +3,8 @@ set -e
 
 export YML=/etc/elasticsearch/elasticsearch.yml
 
+echo path.data: /var/lib/elasticsearch >> $YML
+
 : ${ES_CLUSTER_NAME:=elasticsearch}
 echo cluster.name: $ES_CLUSTER_NAME >> $YML
 
