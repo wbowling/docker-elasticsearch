@@ -11,6 +11,8 @@ RUN apt-get update && \
 RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
 RUN /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head
 RUN /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.0.0.RC1
+RUN /usr/share/elasticsearch/bin/plugin -install karmi/elasticsearch-paramedic
+RUN /usr/share/elasticsearch/bin/plugin -install polyfractal/elasticsearch-segmentspy
 
 ADD launch-elasticsearch /launch-elasticsearch
 
