@@ -12,6 +12,10 @@ if [ -n "$ES_PUBLISH_HOST" ]; then
   echo network.publish_host: $ES_PUBLISH_HOST >> $YML
 fi
 
+if [ -n "$ES_NUMBER_OF_REPLICAS" ]; then
+  echo index.number_of_replicas: $ES_NUMBER_OF_REPLICAS >> $YML
+fi
+
 echo http.max_content_length: 1000mb >> $YML
 
 if [ -n "$AWS_ACCESS_KEY" ] && [ -n "$AWS_SECRET_KEY" ]; then

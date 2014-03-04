@@ -4,8 +4,10 @@ An elasticsearch container that works on EC2 with coreos.
 
     # Optional, defaults to elasticsearch.
     ES_CLUSTER_NAME=
-    # Optional.
+    # The host to publish elasticsearch on.
     ES_PUBLISH_HOST=(optional)
+    # Number of index replicas.
+    ES_NUMBER_OF_REPLICAS=(optional)
     # These two variables should be set if you want to use EC2 discovery.
     AWS_ACCESS_KEY=(optional)
     AWS_SECRET_KEY=(optional)
