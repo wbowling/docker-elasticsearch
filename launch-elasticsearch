@@ -28,4 +28,9 @@ if [ -n "$AWS_ACCESS_KEY" ] && [ -n "$AWS_SECRET_KEY" ]; then
   echo discovery.type: ec2 >> $YML
 fi
 
+if [ -n "$ZOOKEEPER_HOST" ]; then
+  echo discovery.type: com.sonian.elasticsearch.zookeeper.discovery.ZooKeeperDiscoveryModule >> $YML
+  echo sonian.elasticsearch.zookeeper.client.host: "$ZOOKEEPER_HOST" >> $YML
+fi
+
 /usr/share/elasticsearch/bin/elasticsearch
