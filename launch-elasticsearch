@@ -33,4 +33,4 @@ if [ -n "$ZOOKEEPER_HOST" ]; then
   echo sonian.elasticsearch.zookeeper.client.host: "$ZOOKEEPER_HOST" >> $YML
 fi
 
-/usr/share/elasticsearch/bin/elasticsearch
+/usr/share/elasticsearch/bin/elasticsearch -f
