@@ -33,4 +33,6 @@ if [ -n "$ZOOKEEPER_HOST" ]; then
   echo sonian.elasticsearch.zookeeper.client.host: "$ZOOKEEPER_HOST" >> $YML
 fi
 
+echo script.disable_dynamic: false >> $YML
+
 /usr/share/elasticsearch/bin/elasticsearch -f
